@@ -1,0 +1,9 @@
+.titleMain {
+    z-index: 1;
+}
+
+@media(width <= 700px) {
+    .titleMain {
+        font-size: 0.9rem;
+    }
+}

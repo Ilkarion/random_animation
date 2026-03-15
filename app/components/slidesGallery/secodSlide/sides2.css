@@ -1,0 +1,23 @@
+.leftImg2 {
+    position: absolute;
+    border-radius: 99999px;
+    overflow: hidden;
+}
+
+.rightImg2 {
+    position: absolute;
+    width: 620px;
+    right: 0px;
+    top: -250px;
+}
+
+@media(width <=767px) {
+    .rightImg2 {
+        width: 400px;
+        bottom: -40px;
+    }
+    .leftImg2 {
+        width: 350px;
+        top: -40px;
+    }
+}

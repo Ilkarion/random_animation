@@ -1,0 +1,54 @@
+.leftPos {
+    position: absolute;
+    bottom: 350px;
+}
+
+.rightPos {
+    position: absolute;
+    top: 150px;
+}
+
+.leftPosImg {
+    position: absolute;
+    top: 150px;
+    width: 400px;
+}
+
+.rightPosImg {
+    position: absolute;
+    right: -200px;
+    top: -90px;
+    width: 400px;
+}
+@media(width<=1024) {
+    .leftPos {
+        width: 320px;
+        border: 1px solid red;
+    }
+}
+
+@media(width <=767px) {
+    .leftPos {
+        display: none;
+    }
+    .rightPos {
+    position: absolute;
+    top: -40px;
+    }
+
+    .rightPosImg {
+        position: absolute;
+        width: 200px;
+        top: 0px;
+        left: 100px;
+    }
+}
+
+@media(width <=600px) {
+    .rightPosImg {
+        position: absolute;
+        width: 150px;
+        top: 0px;
+        left: 100px;
+    }
+}

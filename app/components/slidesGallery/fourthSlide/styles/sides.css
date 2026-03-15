@@ -1,0 +1,114 @@
+/* --- БАЗОВЫЕ СТИЛИ (ПК / DESKTOP) --- */
+
+/* Общие стили для контейнеров (левого и правого) */
+.leftImg4, .rightImg4 {
+    display: flex;
+    flex-direction: column;
+    gap: 50px; /* Отступ между картинками */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Центрируем по вертикали */
+    z-index: 10;
+}
+
+.leftImg4 {
+    left: 5%; /* Отступ от левого края */
+}
+
+.rightImg4 {
+    right: 5%; /* Отступ от правого края */
+}
+
+/* Обертки для картинок */
+.leftImg4 > div,
+.rightImg4 > div {
+    width: 350px;
+    height: 200px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative; /* Полезно, если Next.js Image использует fill */
+}
+
+.sideWrap {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  gap: clamp(12px, 2vw, 40px);
+}
+
+.left {
+  left: clamp(10px, 4vw, 80px);
+}
+
+.right {
+  right: clamp(10px, 4vw, 80px);
+}
+
+.imgCard {
+  position: relative;
+
+  width: clamp(140px, 20vw, 380px);
+  aspect-ratio: 16 / 9;
+
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.imgCard img {
+  object-fit: cover;
+}
+
+
+/* ========================================= */
+/* --- АДАПТИВНОСТЬ (МЕДИАЗАПРОСЫ) --- */
+/* ========================================= */
+
+/* ПЛАНШЕТЫ (до 1024px) */
+@media (max-width: 1024px) {
+    .leftImg4, .rightImg4 {
+        gap: 30px; /* Уменьшаем расстояние между картинками */
+        flex-direction: row;
+    }
+    
+    .leftImg4 > div,
+    .rightImg4 > div {
+        width: 250px;
+        height: 140px; /* Пропорционально уменьшаем размер */
+    }
+}
+
+/* МОБИЛЬНЫЕ ТЕЛЕФОНЫ (до 767px) */
+@media (max-width: 767px) {
+    .leftImg4 { left: 3%; }
+    .rightImg4 { right: 3%; }
+
+    .leftImg4, .rightImg4 {
+        gap: 15px;
+    }
+
+    .leftImg4 > div,
+    .rightImg4 > div {
+        width: 140px;
+        height: 80px; /* Делаем картинки компактными для телефонов */
+    }
+}
+
+/* МАЛЕНЬКИЕ ЭКРАНЫ (до 480px) */
+@media (max-width: 480px) {
+    .leftImg4, .rightImg4 {
+        gap: 10px;
+    }
+
+    .leftImg4 > div,
+    .rightImg4 > div {
+        width: 100px;
+        height: 60px; /* Минимальный размер для самых маленьких экранов */
+        border-radius: 10px; /* Скругляем чуть меньше */
+    }
+}
+
+

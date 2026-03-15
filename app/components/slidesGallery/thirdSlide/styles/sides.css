@@ -1,0 +1,21 @@
+.leftImg3 {
+    width: 300px;
+    position: absolute;
+}
+
+.rightImg3 {
+    position: absolute;
+    width: 400px;
+    right: 0px;
+}
+
+@media(width <=767px) {
+    .rightImg3 {
+        width: 200px;
+        bottom: -40px;
+    }
+    .leftImg3 {
+        width: 150px;
+        top: -40px;
+    }
+}
