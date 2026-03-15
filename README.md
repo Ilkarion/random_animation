@@ -1,8 +1,10 @@
-Цель проекта была проста: научится создавать сайты "рассказывающие историю" и работать с большой GSAP библиотекой для разной и потимизированой анимации
-Проект рассказывает про игру DYSON SPhere Programm.
-Имеет 4 секции. 1 - рассказывает этапы прохождения игры с помощью анимации "Спераль"
-2- показывает небольшую статистику игры,
-3- показывает некоторые типы планет которые можно исследовать в игре
-4 - заключения где подбиваются выводы и указывается автор проекта
-значительно ускорило мою разработку использование AI для изучения GSAP библиотеки  --нужно такое говорить?
-Sorry for the poor quality images, this was the best I could find and edit. -- нужно такое говорить?
+### 🎨 Random Animation  
+**Random Animation** is a frontend project focused on creating visually engaging and optimized animations using modern web animation tools like GSAP.  
+The project tells a story about the game **Dyson Sphere Program** through multiple animated sections, including game progression, simple statistics, types of planets, and conclusions.  
+Animations and interactions are smooth and designed to enhance user experience.
+
+🔧 **Tech:** TypeScript, CSS, JavaScript, GSAP  
+🌐 **Live Demo:** https://random-animation-ecru.vercel.app/  
+📁 **Repository:** https://github.com/Ilkarion/random_animation
+
+✨ This project demonstrates skills in DOM manipulation, animation logic, UI storytelling, performance optimization, and responsive frontend design
