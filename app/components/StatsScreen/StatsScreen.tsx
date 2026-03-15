@@ -29,7 +29,7 @@ export default function StatsScreen({ isActive }: StatsScreenProps) {
         { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, delay: 0.4, ease: 'back.out(1.2)' }
       );
 
-      // Анимация чисел (если нужно, можно вынести в отдельный компонент)
+      // Анимация чисел
       blocksRef.current.forEach((block, index) => {
         if (!block) return;
         const counterEl = block.querySelector('.counter-val');
@@ -49,11 +49,17 @@ export default function StatsScreen({ isActive }: StatsScreenProps) {
   }, [isActive]);
 
   return (
-    <div className={styles.container} ref={containerRef}>
+    <div 
+      className={styles.container} 
+      ref={containerRef}
+      style={{ touchAction: 'none' }} /* Блокируем системный скролл */
+    >
       <div className={styles.wrapper}>
-        <h2 ref={titleRef} className="text-4xl md:text-5xl font-black uppercase tracking-[0.2em] text-white mb-16">
+        {/* Уменьшили шрифт заголовка и отступ для мобилок (text-2xl, mb-8) */}
+        <h2 ref={titleRef} className="text-2xl md:text-5xl font-black uppercase tracking-[0.2em] text-white mb-8 md:mb-16 text-center">
           Benefits
         </h2>
+        
         <div className={styles.grid}>
           {[
             { target: 60, suffix: '+', label: 'Building Types', color: 'text-cyan-400' },
@@ -62,11 +68,15 @@ export default function StatsScreen({ isActive }: StatsScreenProps) {
             { target: 12, suffix: '+', label: 'Planet Types', color: 'text-rose-400' },
           ].map((stat, i) => (
             <div key={i} className={styles.statBlock} ref={(el) => { blocksRef.current[i] = el; }}>
-              <div className={`text-5xl md:text-7xl font-black mb-4 ${stat.color}`}>
+              {/* Адаптивный размер цифр */}
+              <div className={`text-3xl sm:text-4xl md:text-7xl font-black mb-2 md:mb-4 ${stat.color}`}>
                 <span className="counter-val" data-target={stat.target}>0</span>
                 {stat.suffix}
               </div>
-              <div className="text-white/60 text-sm tracking-[0.2em] uppercase font-bold">{stat.label}</div>
+              {/* Адаптивный размер текста подписей */}
+              <div className="text-white/60 text-[10px] sm:text-xs md:text-sm tracking-[0.1em] md:tracking-[0.2em] uppercase font-bold text-center leading-tight">
+                {stat.label}
+              </div>
             </div>
           ))}
         </div>

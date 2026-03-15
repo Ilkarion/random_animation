@@ -10,6 +10,10 @@
   perspective: 1200px;
   opacity: 0; 
   pointer-events: none;
+  
+  /* Гарантируем отсутствие скролла на мобильных устройствах */
+  touch-action: none;
+  overscroll-behavior: none;
 }
 
 .track {
@@ -28,7 +32,7 @@
 
 .itemWrapper {
   /* Сделали размер больше, чтобы планета смотрелась масштабно */
-  width: clamp(280px, 50vw, 600px);
+  width: clamp(280px, 60vw, 600px); /* Немного увеличил с 50vw до 60vw, чтобы на планшетах смотрелось сочнее */
   aspect-ratio: 1; 
   
   position: absolute; 

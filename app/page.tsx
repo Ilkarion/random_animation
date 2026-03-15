@@ -42,7 +42,7 @@ gsap.registerPlugin(Observer);
 export default function App() {
   const [appState, setAppState] = useState<
     "HELIX" | "STATS" | "PLANETS" | "OUTRO"
-  >("OUTRO");
+  >("HELIX");
 
   const [helixIndex, setHelixIndex] = useState(0);
   const [carouselIndex, setCarouselIndex] = useState(0);

@@ -84,7 +84,11 @@ export default function OutroScreen({ isActive }: OutroScreenProps) {
   };
 
   return (
-    <div ref={containerRef} className="outro-container">
+    <div 
+      ref={containerRef} 
+      className="outro-container" 
+      style={{ touchAction: 'none' }} /* Жестко запрещаем браузеру реагировать на свайпы */
+    >
       {/* 1. Фоновые падающие звезды */}
       <div className="ambient-stars-layer">{renderAmbientStars()}</div>
 
@@ -94,16 +98,16 @@ export default function OutroScreen({ isActive }: OutroScreenProps) {
       <div className="nebula-orb orb-3"></div>
 
       {/* 3. Текст */}
-      <div className="outro-content relative z-10 flex flex-col gap-8 md:gap-12 max-w-4xl text-center px-6">
-        <p ref={text1Ref} className="outro-text outro-text-1 text-lg md:text-3xl font-light text-cyan-100 drop-shadow-[0_0_10px_rgba(207,250,254,0.5)]">
+      <div className="outro-content relative z-10 flex flex-col gap-6 md:gap-12 max-w-4xl text-center px-4 md:px-6">
+        <p ref={text1Ref} className="outro-text outro-text-1 text-base md:text-3xl font-light text-cyan-100 drop-shadow-[0_0_10px_rgba(207,250,254,0.5)]">
           This showcase was made to demonstrate proficiency with the GSAP library and to share a bit about my favorite game, <strong className="text-cyan-400 font-bold">Dyson Sphere Program</strong>.
         </p>
-        <p ref={text2Ref} className="outro-text outro-text-2 text-md md:text-2xl font-light text-purple-200 drop-shadow-[0_0_10px_rgba(233,213,255,0.5)]">
+        <p ref={text2Ref} className="outro-text outro-text-2 text-sm md:text-2xl font-light text-purple-200 drop-shadow-[0_0_10px_rgba(233,213,255,0.5)]">
           Sorry for the poor quality images, this was the best I could find and edit.
         </p>
-        <div ref={text3Ref} className="outro-text outro-text-3 text-xl md:text-4xl font-medium text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.8)] mt-4">
+        <div ref={text3Ref} className="outro-text outro-text-3 text-lg md:text-4xl font-medium text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.8)] mt-2 md:mt-4">
           Thank you for your attention.<br />
-          <span className="text-rose-400 text-base md:text-2xl mt-4 block tracking-widest uppercase">Author: Ilkarion</span>
+          <span className="text-rose-400 text-sm md:text-2xl mt-4 block tracking-widest uppercase">Author: Ilkarion</span>
         </div>
       </div>
 

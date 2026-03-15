@@ -83,7 +83,11 @@ export default function PlanetCarousel({
   }, [currentIndex, isActive, items]);
 
   return (
-    <div className={styles.container} ref={containerRef}>
+    <div 
+      className={styles.container} 
+      ref={containerRef}
+      style={{ touchAction: 'none' }} /* ЖЕСТКАЯ БЛОКИРОВКА СКРОЛЛА/СВАЙПА ДЛЯ МОБИЛОК */
+    >
       {/* Заголовок сверху */}
       <h2 className="absolute top-12 md:top-16 text-3xl md:text-5xl font-black uppercase tracking-[0.2em] text-white drop-shadow-lg z-50 text-center w-full px-4">
         Planets

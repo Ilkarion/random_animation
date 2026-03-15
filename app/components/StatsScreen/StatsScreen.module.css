@@ -1,37 +1,79 @@
 .container {
-  position: absolute; inset: 0; z-index: 40;
-  display: flex; align-items: center; justify-content: center;
-  padding: 3rem; opacity: 0; pointer-events: none;
+  position: absolute; 
+  inset: 0; 
+  z-index: 40;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  padding: 1rem; /* Уменьшили паддинг для мобильных */
+  opacity: 0; 
+  pointer-events: none;
+  overflow: hidden;
+  
+  /* Блокировка резинового скролла на iOS/Android */
+  touch-action: none;
+  overscroll-behavior: none;
 }
+
+@media (min-width: 768px) {
+  .container {
+    padding: 3rem; /* Возвращаем большой паддинг на десктопах */
+  }
+}
+
 .wrapper {
-  max-width: 72rem; width: 100%; display: flex; flex-direction: column; align-items: center;
+  max-width: 72rem; 
+  width: 100%; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
 }
+
 .grid {
-  display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); width: 100%; gap: 2rem;
+  display: grid; 
+  /* ВАЖНО: Делаем сетку 2x2 на мобильных, чтобы 4 блока ровно влезли в экран без скролла! */
+  grid-template-columns: repeat(2, minmax(0, 1fr)); 
+  width: 100%; 
+  gap: 1rem; /* Меньший отступ на мобильных */
 }
-@media (min-width: 640px) { 
-  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); };
+
+@media (min-width: 768px) {
+  .grid {
+    gap: 2rem; /* Возвращаем отступ на планшетах */
+  }
 }
-@media (min-width: 1024px) { .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+@media (min-width: 1024px) { 
+  .grid { 
+    /* 4 в ряд только на больших экранах */
+    grid-template-columns: repeat(4, minmax(0, 1fr)); 
+  } 
+}
 
 .statBlock {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 1.5rem; padding: 2rem;
-  -webkit-backdrop-filter:blur(16px);
+  border-radius: 1rem; /* Чуть меньше скругление для мобилок */
+  padding: 1rem; /* Меньше внутренний отступ для мобилок */
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
-  display: flex; flex-direction: column; align-items: center; text-align: center;
-  opacity: 0; transform: translateY(50px);
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+  text-align: center;
+  opacity: 0; 
+  transform: translateY(50px);
 }
 
-@media(width <=1024px) {
-  .container {
-    margin-bottom: 300px;
+@media (min-width: 768px) {
+  .statBlock {
+    border-radius: 1.5rem;
+    padding: 2rem;
   }
 }
-@media(width <=840px) {
-  .container {
-    margin-bottom: 0px;
-    margin-top: 200px;
-  }
-}
+
+/* 
+  ПОЛНОСТЬЮ УДАЛЕНЫ БАГОВАННЫЕ @media С margin-bottom и margin-top.
+  Теперь контейнер всегда строго привязан к краям экрана (inset: 0) и никогда не вызывает скролл.
+*/

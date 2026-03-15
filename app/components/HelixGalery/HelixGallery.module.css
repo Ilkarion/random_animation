@@ -1,19 +1,19 @@
 .container {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   perspective: 1400px;
   transition: opacity 0.8s ease;
+  /* Дополнительная защита от скролла */
+  touch-action: none;
+  overscroll-behavior: none;
 }
 
 .sceneTilt {
   transform-style: preserve-3d;
-  /* ФИКС СПЛЮЩЕННОСТИ: Было -8deg. Убрали наклон, теперь карточка идеально ровная к экрану */
   transform: rotateX(0deg); 
   display: flex;
   align-items: center;
@@ -36,17 +36,13 @@
   left: 50%;
   transform-style: preserve-3d;
   backface-visibility: hidden;
-  
-  /* Сглаживание шрифтов */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
 }
-
 
 /* --- Адаптив боковых панелей --- */
 .sidePanelLeft {
-  position: fixed;
+  position: absolute;
   left: 3rem;
   top: 50%;
   transform: translateY(-50%);
@@ -55,7 +51,7 @@
 }
 
 .sidePanelRight {
-  position: fixed;
+  position: absolute;
   right: 3rem;
   top: 50%;
   transform: translateY(-50%);
@@ -72,8 +68,6 @@
   justify-content: center;
 }
 
-
-
 /* Планшеты */
 @media (max-width: 1024px) {
   .sidePanelLeft {
@@ -86,29 +80,30 @@
   }
 }
 
-/* Мобильные телефоны: переносим боковые тексты наверх и вниз, чтобы не перекрывали центр */
+/* Мобильные телефоны */
 @media (max-width: 768px) {
   .sidePanelLeft {
-    top: 15%;
+    top: 10%; /* Чуть выше */
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
+    height: 80px; /* Фиксируем высоту, чтобы внутри поместился абсолютный текст */
     text-align: center;
   }
+  
   .sidePanelRight {
     top: auto;
-    bottom: 15%;
+    bottom: 10%; /* Чуть ниже */
     right: auto;
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
+    height: 80px; /* Фиксируем высоту */
     text-align: center;
   }
   
-  /* Убираем абсолютное позиционирование для мобильных внутри panelItem, 
-     чтобы контент просто центрировался */
+  /* Элементы остаются абсолютными, они накладываются друг на друга и не растягивают экран! */
   .panelItem {
-    position: relative;
-    display: block;
+    align-items: center; /* Текст будет по центру */
   }
 }
