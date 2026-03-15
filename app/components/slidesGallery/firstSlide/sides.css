@@ -23,7 +23,6 @@
 @media(width<=1024) {
     .leftPos {
         width: 320px;
-        border: 1px solid red;
     }
 }
 

@@ -1,5 +1,5 @@
 .titleMain {
-    z-index: 1;
+    z-index: 150;
 }
 
 @media(width <= 700px) {

@@ -9,7 +9,9 @@
 .grid {
   display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); width: 100%; gap: 2rem;
 }
-@media (min-width: 640px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 640px) { 
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); };
+}
 @media (min-width: 1024px) { .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 
 .statBlock {
@@ -20,4 +22,16 @@
   backdrop-filter: blur(16px);
   display: flex; flex-direction: column; align-items: center; text-align: center;
   opacity: 0; transform: translateY(50px);
+}
+
+@media(width <=1024px) {
+  .container {
+    margin-bottom: 300px;
+  }
+}
+@media(width <=840px) {
+  .container {
+    margin-bottom: 0px;
+    margin-top: 200px;
+  }
 }

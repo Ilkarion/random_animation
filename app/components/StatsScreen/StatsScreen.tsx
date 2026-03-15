@@ -52,14 +52,14 @@ export default function StatsScreen({ isActive }: StatsScreenProps) {
     <div className={styles.container} ref={containerRef}>
       <div className={styles.wrapper}>
         <h2 ref={titleRef} className="text-4xl md:text-5xl font-black uppercase tracking-[0.2em] text-white mb-16">
-          Аналитика Системы
+          Benefits
         </h2>
         <div className={styles.grid}>
           {[
-            { target: 50, suffix: '+', label: 'Видов построек', color: 'text-cyan-400' },
-            { target: 10, suffix: '+', label: 'Типов ресурсов', color: 'text-purple-400' },
-            { target: 99, suffix: '%', label: 'Стабильность', color: 'text-green-400' },
-            { target: 100, suffix: 'h', label: 'Аптайм ядра', color: 'text-rose-400' },
+            { target: 60, suffix: '+', label: 'Building Types', color: 'text-cyan-400' },
+            { target: 16, suffix: '+', label: 'Resource Types', color: 'text-purple-400' },
+            { target: 70, suffix: '+ hrs', label: 'Average Playtime', color: 'text-green-400' },
+            { target: 12, suffix: '+', label: 'Planet Types', color: 'text-rose-400' },
           ].map((stat, i) => (
             <div key={i} className={styles.statBlock} ref={(el) => { blocksRef.current[i] = el; }}>
               <div className={`text-5xl md:text-7xl font-black mb-4 ${stat.color}`}>
