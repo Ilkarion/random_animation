@@ -5,6 +5,6 @@ Animations and interactions are smooth and designed to enhance user experience.
 
 🔧 **Tech:** TypeScript, CSS, JavaScript, GSAP  
 🌐 **Live Demo:** https://random-animation-ecru.vercel.app/  
-📁 **Repository:** https://github.com/Ilkarion/random_animation
+
 
 ✨ This project demonstrates skills in DOM manipulation, animation logic, UI storytelling, performance optimization, and responsive frontend design
